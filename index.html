@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Forgive Me?</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+      font-family: 'Segoe UI', sans-serif;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #fff;
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .buttons {
+      display: flex;
+      gap: 20px;
+    }
+
+    button {
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #yesBtn {
+      background-color: #fff;
+      color: #ff4081;
+    }
+
+    #yesBtn:hover {
+      background-color: #ff4081;
+      color: #fff;
+    }
+
+    #noBtn {
+      background-color: #fff;
+      color: #ff1744;
+      position: relative;
+    }
+
+    #noBtn:hover {
+      position: absolute;
+      top: calc(20% + 50px - 30px + (Math.random() * 100 - 50)px);
+      left: calc(50% + (Math.random() * 200 - 100)px);
+    }
+  </style>
+</head>
+<body>
+  <h1>Will You Forgive Me? 🥺💔</h1>
+  <div class="buttons">
+    <button id="yesBtn" onclick="yesClicked()">Yes 💖</button>
+    <button id="noBtn">No 😢</button>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById('noBtn');
+
+    noBtn.addEventListener('mouseover', () => {
+      const x = Math.random() * window.innerWidth - 100;
+      const y = Math.random() * window.innerHeight - 100;
+      noBtn.style.position = 'absolute';
+      noBtn.style.left = `${x}px`;
+      noBtn.style.top = `${y}px`;
+    });
+
+    function yesClicked() {
+      document.body.innerHTML = `
+        <h1 style="color:white;">Yay! I Knew You Would 💘</h1>
+        <p style="color:white; font-size: 1.5em;">I’ll never make you upset again. Promise! 🥹</p>
+      `;
+    }
+  </script>
+</body>
+</html>
